@@ -36,15 +36,15 @@ function collectInput() {
     whatCharLength = prompt ("Enter a password length between " + min + " - " + max + " characters");
   }
   //Types of characters wanted
-    wantLowers = window.confirm ("Do you want lowercase characters in your password? (i.e. - " + charsLower2);
-    wantUppers = window.confirm ("Do you want uppercase characters in your password? (i.e. - " + chars2);
-    wantNums = window.confirm ("Do you want numeric characters in your password?(i.e. - " + nums2);
-    wantSpecials = window.confirm ("Do you want special characters in your password?(i.e. - " + specials2);
+    wantLowers = window.confirm ("Do you want lowercase characters in your password? (i.e. - " + charsLower2 + ")");
+    wantUppers = window.confirm ("Do you want uppercase characters in your password? (i.e. - " + chars2 + ")");
+    wantNums = window.confirm ("Do you want numeric characters in your password?(i.e. - " + nums2 + ")");
+    wantSpecials = window.confirm ("Do you want special characters in your password?(i.e. - " + specials2 + ")");
   while (!wantLowers && !wantUppers && !wantNums && !wantSpecials) {
-    wantLowers = window.confirm ("Do you want lowercase characters in your password? (i.e. - " + charsLower2);
-    wantUppers = window.confirm ("Do you want uppercase characters in your password? (i.e. - " + chars2);
+    wantLowers = window.confirm ("Do you want lowercase characters in your password? (i.e. - " + charsLower2 + ")");
+    wantUppers = window.confirm ("Do you want uppercase characters in your password? (i.e. - " + chars2 + ")");
     wantNums = window.confirm ("Do you want numeric characters in your password?(i.e. - " + nums2);
-    wantSpecials = window.confirm ("Do you want special characters in your password?(i.e. - " + specials2);
+    wantSpecials = window.confirm ("Do you want special characters in your password?(i.e. - " + specials2 + ")");
     alert("You did not choose any character types.  A password cannot be generated.  Try again.");
   }
 
@@ -97,18 +97,15 @@ function generatePassword() {
 
 // Write password to the #password input
 function writePassword() {
+  collectInput();
+  console.log("Input received from the user: ")
+  console.log(inputObject);
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
-
-//Execute the collection of input and send the input to the console
-collectInput();
-console.log("Input received from the user: ")
-console.log(inputObject);
-writePassword();
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
